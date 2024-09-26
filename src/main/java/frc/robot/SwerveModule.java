@@ -72,8 +72,8 @@ public class SwerveModule {
         // Apply position and velocity conversion factors for the turning encoder. We
         // want these in radians and radians per second to use with WPILib's swerve
         // APIs.
-        steerEncoder.setPositionConversionFactor(ModuleConstants.kTurningEncoderPositionFactor);
-        steerEncoder.setVelocityConversionFactor(ModuleConstants.kTurningEncoderVelocityFactor);
+        steerEncoder.setPositionConversionFactor(Constants.kTurningEncoderPositionFactor);
+        steerEncoder.setVelocityConversionFactor(Constants.kTurningEncoderVelocityFactor);
         // Enable PID wrap around for the turning motor. This will allow the PID
         // controller to go through 0 to get to the setpoint i.e. going from 350 degrees
         // to 10 degrees will go through 0 rather than the other direction which is a
@@ -83,10 +83,10 @@ public class SwerveModule {
         turningPIDController.setPositionPIDWrappingMaxInput(90);
         // Set the PID gains for the turning motor. Note these are example gains, and you
         // may need to tune them for your own robot!
-        turningPIDController.setP(ModuleConstants.kTurningP);
-        turningPIDController.setI(ModuleConstants.kTurningI);
-        turningPIDController.setD(ModuleConstants.kTurningD);
-        turningPIDController.setFF(ModuleConstants.kTurningFF);
+        turningPIDController.setP(Constants.kTurningP);
+        turningPIDController.setI(Constants.kTurningI);
+        turningPIDController.setD(Constants.kTurningD);
+        turningPIDController.setFF(Constants.kTurningFF);
         
         // Drive Motor Configuration
         mDriveMotor.setInverted(false);
@@ -94,14 +94,14 @@ public class SwerveModule {
         // Apply position and velocity conversion factors for the driving encoder. The
         // native units for position and velocity are rotations and RPM, respectively,
         // but we want meters and meters per second to use with WPILib's swerve APIs.        
-        driveEncoder.setPositionConversionFactor(ModuleConstants.kDrivingEncoderPositionFactor);        
-        driveEncoder.setVelocityConversionFactor(ModuleConstants.kDrivingEncoderVelocityFactor);
+        driveEncoder.setPositionConversionFactor(Constants.kDrivingEncoderPositionFactor);        
+        driveEncoder.setVelocityConversionFactor(Constants.kDrivingEncoderVelocityFactor);
         // Set the PID gains for the driving motor. Note these are example gains, and you
         // may need to tune them for your own robot!
-        drivingPIDController.setP(ModuleConstants.kDrivingP);
-        drivingPIDController.setI(ModuleConstants.kDrivingI);
-        drivingPIDController.setD(ModuleConstants.kDrivingD);
-        drivingPIDController.setFF(ModuleConstants.kDrivingFF);
+        drivingPIDController.setP(Constants.kDrivingP);
+        drivingPIDController.setI(Constants.kDrivingI);
+        drivingPIDController.setD(Constants.kDrivingD);
+        drivingPIDController.setFF(Constants.kDrivingFF);
         
         // Save the SPARK MAX configurations. If a SPARK MAX browns out during
         // operation, it will maintain the above configurations.
