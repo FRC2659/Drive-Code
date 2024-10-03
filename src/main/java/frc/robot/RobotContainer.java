@@ -9,6 +9,13 @@ import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.InstantCommand;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 
+import com.pathplanner.lib.auto.AutoBuilder;
+import com.pathplanner.lib.auto.NamedCommands;
+import com.pathplanner.lib.commands.PathPlannerAuto;
+import com.pathplanner.lib.path.GoalEndState;
+import com.pathplanner.lib.path.PathConstraints;
+import com.pathplanner.lib.path.PathPlannerPath;
+
 import frc.robot.commands.*;
 import frc.robot.subsystems.*;
 
@@ -58,6 +65,10 @@ public class RobotContainer {
                 () -> robotCentric.getAsBoolean()
             )
         );
+
+        NamedCommands.registerCommand("Intake", EndEffector.intake());
+        NamedCommands.registerCommand("Release", EndEffector.release());
+        NamedCommands.registerCommand("SubShot", EndEffector.subShot());
 
         // Configure the button bindings
         configureButtonBindings();
