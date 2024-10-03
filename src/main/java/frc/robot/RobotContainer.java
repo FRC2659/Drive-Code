@@ -67,6 +67,8 @@ public class RobotContainer {
         );
 
         NamedCommands.registerCommand("Intake", EndEffector.intake());
+        NamedCommands.registerCommand("ArmToIntakePos", Arm.intake());
+        NamedCommands.registerCommand("ArmToSubShotPos", Arm.subShot());
         NamedCommands.registerCommand("Release", EndEffector.release());
         NamedCommands.registerCommand("SubShot", EndEffector.subShot());
 
