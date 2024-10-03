@@ -71,6 +71,8 @@ public class RobotContainer {
         NamedCommands.registerCommand("ArmToSubShotPos", Arm.subShot());
         NamedCommands.registerCommand("Release", EndEffector.release());
         NamedCommands.registerCommand("SubShot", EndEffector.subShot());
+        NamedCommands.registerCommand("ArmToHomePos", Arm.goHome());
+        NamedCommands.registerCommand("Home", EndEffector.goHome());
 
         // Configure the button bindings
         configureButtonBindings();
