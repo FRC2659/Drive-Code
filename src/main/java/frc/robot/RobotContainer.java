@@ -66,13 +66,10 @@ public class RobotContainer {
             )
         );
 
-        NamedCommands.registerCommand("Intake", EndEffector.intake());
-        NamedCommands.registerCommand("ArmToIntakePos", Arm.intake());
-        NamedCommands.registerCommand("ArmToSubShotPos", Arm.subShot());
-        NamedCommands.registerCommand("Release", EndEffector.release());
-        NamedCommands.registerCommand("SubShot", EndEffector.subShot());
-        NamedCommands.registerCommand("ArmToHomePos", Arm.goHome());
-        NamedCommands.registerCommand("Home", EndEffector.goHome());
+        NamedCommands.registerCommand("Intake", SuperStructure.intake());
+        NamedCommands.registerCommand("TargetShot", SuperStructure.targetShot());
+        NamedCommands.registerCommand("SubShot", SuperStructure.subShot());
+        NamedCommands.registerCommand("Home", SuperStructure.goHome());
 
         // Configure the button bindings
         configureButtonBindings();
