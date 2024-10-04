@@ -25,8 +25,7 @@ public class SwerveDrive extends SubsystemBase
     /**
      * 
      */
-    public SwerveDrive() 
-    {
+    public SwerveDrive() {
         
         swerveModules = new SwerveModule[0]; // Psuedo-code; Create swerve modules here.
         swerveModules = new SwerveModule[1];
@@ -53,6 +52,31 @@ public class SwerveDrive extends SubsystemBase
                 new SwerveModulePosition(), 
                 new SwerveModulePosition(),
               }); // x=0, y=0, heading=0
+
+        // Configure AutoBuilder last
+    AutoBuilder.configureRamsete(
+            this::getPose, // Robot pose supplier
+            this::resetPose, // Method to reset odometry (will be called if your auto has a starting pose)
+            this::getCurrentSpeeds, // Current ChassisSpeeds supplier
+            this::drive, // Method that will drive the robot given ChassisSpeeds
+            new ReplanningConfig(), // Default path replanning config. See the API for the options here
+            () -> {
+              // Boolean supplier that controls when the path will be mirrored for the red alliance
+              // This will flip the path being followed to the red side of the field.
+              // THE ORIGIN WILL REMAIN ON THE BLUE SIDE
+
+              var alliance = DriverStation.getAlliance();
+              if (alliance.isPresent()) {
+                return alliance.get() == DriverStation.Alliance.Red;
+              }
+              return false;
+            },
+            this // Reference to this subsystem to set requirements
+    );
+
+        
+
+        
         
             
     }
