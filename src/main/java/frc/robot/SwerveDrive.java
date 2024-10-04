@@ -54,7 +54,7 @@ public class SwerveDrive extends SubsystemBase
               }); // x=0, y=0, heading=0
 
         // Configure AutoBuilder last
-    AutoBuilder.configureRamsete(
+        AutoBuilder.configureRamsete(
             this::getPose, // Robot pose supplier
             this::resetPose, // Method to reset odometry (will be called if your auto has a starting pose)
             //method needs to be updated this::getCurrentSpeeds, // Current ChassisSpeeds supplier
